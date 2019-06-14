@@ -1,4 +1,4 @@
-#PMD Example with Maven Multi-Module Project
+# PMD Example with Maven Multi-Module Project
 
 ## Adding PMD to Jenkins Steps
 
