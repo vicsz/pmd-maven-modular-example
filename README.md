@@ -18,6 +18,13 @@
 
 <img src="img/pmdreport.png" width="800">
 
-### 5. Optionally, add a quality gate for notifications on new violations
+### 5. Optional - add a quality gate for notifications on new violations
 
 <img src="img/qualitygate.png" width="800">
+
+### 6. Optional - add Slack notifications on broken builds. 
+
+Steps at: 
+
+[https://github.com/jenkinsci/slack-plugin](https://github.com/jenkinsci/slack-plugin)
+
