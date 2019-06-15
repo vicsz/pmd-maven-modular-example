@@ -34,9 +34,18 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-pmd-plugin</artifactId>
         <version>3.12.0</version>
+        <dependencies>
+          <dependency>
+            <groupId>net.sourceforge.pmd.examples</groupId>
+            <artifactId>pmd-custom-rules</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${maven.multiModuleProjectDirectory}/pmd/target/pmd-custom-rules-1.0.jar</systemPath>
+          </dependency>
+        </dependencies>
         <configuration>
             <rulesets>
-                <ruleset>${maven.multiModuleProjectDirectory}/pmd/custom-pmd-ruleset.xml</ruleset>
+                <ruleset>${maven.multiModuleProjectDirectory}/pmd/pmd-custom-ruleset.xml</ruleset>
             </rulesets>
             <verbose>true</verbose>
             <linkXRef>false</linkXRef>

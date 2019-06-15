@@ -10,4 +10,14 @@
 
     <rule ref="category/java/bestpractices.xml/SystemPrintln" />
 
+    <rule ref="category/java/errorprone.xml/ProperLogger">
+        <properties>
+            <property name="staticLoggerName" value="logger" />
+        </properties>
+    </rule>
+
+    <rule ref="net/sourceforge/pmd/examples/java/rules/MyRule.xml/MyRule" />
+    <rule ref="net/sourceforge/pmd/examples/java/rules/VariableNaming.xml/VariableNaming" />
+
+
 </ruleset>

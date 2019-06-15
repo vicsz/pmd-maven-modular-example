@@ -13,6 +13,14 @@
   <version>1.0</version>
   <name>module1</name>
 
+  <dependencies>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.7.26</version>
+    </dependency>
+  </dependencies>
+
   <build>
     <plugins>
       <plugin>

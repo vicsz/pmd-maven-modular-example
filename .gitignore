@@ -31,3 +31,5 @@ HELP.md
 .DS_Store
 
 target/
+
+!pmd/target/pmd-custom-rules-1.0.jar
