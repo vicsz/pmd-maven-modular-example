@@ -34,10 +34,10 @@ Steps at:
 
 ### 2. Rebuild the custom rules 
 
-``sh
+```sh
 cd pmd
 mvn package
-``
+```
 
 ### 3. Update the pmd/pmd-custom-ruleset.xml with the new rules 
 
