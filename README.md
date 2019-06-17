@@ -1,5 +1,30 @@
 # PMD Example with Maven Multi-Module Project
 
+## Running PMD Check 
+
+PMD Check will verify (and the break the build if needed) if code breaks current violation thresholds:
+
+Number of ways exists to run it :
+
+### 1. Directly via pmd:check
+
+```sh
+#mvn pmd:check
+
+```
+
+### 2. As part of Java Verify phase (automatically)
+
+```sh
+#mvn verify
+```
+
+or
+
+```sh
+#mvn install
+```
+
 ## Adding PMD to Jenkins Steps
 
 ### 1. Ensure the *Warnings Next Generation Plugin* Jenkins Plugin is installed.

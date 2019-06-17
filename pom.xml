@@ -51,6 +51,16 @@
             <linkXRef>false</linkXRef>
             <includeTests>true</includeTests>
         </configuration>
+
+        <!-- Run pmd:check automatically as part of Java Verify Phase -->
+        <executions>
+          <execution>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+
       </plugin>
 
     </plugins>
