@@ -25,6 +25,18 @@ or
 #mvn install
 ```
 
+Note: command can be run both at the project root level, as well as the submodule level.
+
+## Running PMD Report
+
+PMD Report create (and the break the build if needed) if code breaks current violation thresholds:
+
+```sh
+#mvn pmd:pmd
+```
+
+PMD Html Report will be generated in: {module_name}/target/site/pmd.html
+
 ## Adding PMD to Jenkins Steps
 
 ### 1. Ensure the *Warnings Next Generation Plugin* Jenkins Plugin is installed.
@@ -64,6 +76,6 @@ cd pmd
 mvn package
 ```
 
-### 3. Update the pmd/pmd-custom-ruleset.xml with the new rules 
+### 3. Update the pmd/pmd-custom-ruleset.xml with the new rules (if needed)
 
 ### 4. Commit the updated pmd/target/pmd-custom-rules-1.0.jar file to source control

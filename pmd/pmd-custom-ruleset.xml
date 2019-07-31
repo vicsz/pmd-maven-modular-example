@@ -1,21 +1,26 @@
 <ruleset xmlns="http://pmd.sourceforge.net/ruleset/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Default Maven PMD Plugin Ruleset" xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
 
     <description>
-        My custom ruleset.
+        My custom PMD ruleset.
     </description>
 
-    <rule ref="category/java/bestpractices.xml/AvoidUsingHardCodedIP"/>
-
+    <!-- Ensure tests have Asserts -->
     <rule ref="category/java/bestpractices.xml/JUnitTestsShouldIncludeAssert"/>
 
+    <!-- Ensure no STDIO is used , loggers should be used instead -->
     <rule ref="category/java/bestpractices.xml/SystemPrintln" />
 
+    <!-- Proper Logging Rule with custom settings -->
     <rule ref="category/java/errorprone.xml/ProperLogger">
-        <properties>
-            <property name="staticLoggerName" value="logger" />
-        </properties>
+        <!--<properties>-->
+            <!--<property name="staticLoggerName" value="logger" />-->
+        <!--</properties>-->
     </rule>
 
+
+    <rule ref="category/java/errorprone.xml/CloseResource" />
+
+    <!-- Custom Rule usage -->
     <rule ref="net/sourceforge/pmd/examples/java/rules/MyRule.xml/MyRule" />
     <rule ref="net/sourceforge/pmd/examples/java/rules/VariableNaming.xml/VariableNaming" />
 

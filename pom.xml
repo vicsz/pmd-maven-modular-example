@@ -1,69 +1,110 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  
-  <groupId>com.example</groupId>
-  <artifactId>example-parent</artifactId>
-  <version>1.0</version>
-  <packaging>pom</packaging>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-  <name>example-parent</name>
-  
-  <modules>
-    <module>module1</module>
-    <module>module2</module>
-  </modules>
+    <groupId>com.example</groupId>
+    <artifactId>example-parent</artifactId>
+    <version>1.0</version>
+    <packaging>pom</packaging>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
-  
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.8.1</version>
-        <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
-        </configuration>
-      </plugin>
+    <name>example-parent</name>
 
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-pmd-plugin</artifactId>
-        <version>3.12.0</version>
-        <dependencies>
-          <dependency>
-            <groupId>net.sourceforge.pmd.examples</groupId>
-            <artifactId>pmd-custom-rules</artifactId>
-            <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>${maven.multiModuleProjectDirectory}/pmd/target/pmd-custom-rules-1.0.jar</systemPath>
-          </dependency>
-        </dependencies>
-        <configuration>
-            <rulesets>
-                <ruleset>${maven.multiModuleProjectDirectory}/pmd/pmd-custom-ruleset.xml</ruleset>
-            </rulesets>
-            <verbose>true</verbose>
-            <linkXRef>false</linkXRef>
-            <includeTests>true</includeTests>
-        </configuration>
+    <modules>
+        <module>module1</module>
+        <module>module2</module>
+    </modules>
 
-        <!-- Run pmd:check automatically as part of Java Verify Phase -->
-        <executions>
-          <execution>
-            <goals>
-              <goal>check</goal>
-            </goals>
-          </execution>
-        </executions>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
-      </plugin>
+    <build>
+        <plugins>
 
-    </plugins>
-  </build>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>3.12.0</version>
+
+                <!-- PMD Configuration Settings follow -->
+                <configuration>
+
+                    <!-- Custom ruleset file -->
+                    <rulesets>
+                        <ruleset>${maven.multiModuleProjectDirectory}/pmd/pmd-custom-ruleset.xml</ruleset>
+                    </rulesets>
+
+                    <!-- Output each individual violation in STDIO -->
+                    <verbose>true</verbose>
+
+
+                    <!-- Fix to Unable to locate Source XRef WARNING -->
+                    <linkXRef>false</linkXRef>
+
+
+                    <!-- Run PMD against Tests -->
+                    <includeTests>true</includeTests>
+
+                    <!-- Maximum allowed violations to not break the build -->
+                    <!-- this is per submodule , and NOT aggregate !! -->
+                    <maxAllowedViolations>0</maxAllowedViolations>
+
+                </configuration>
+
+                <!-- Run pmd:check automatically as part of Java Verify Phase -->
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+
+                <!-- OPTIONAL - additional custom rules dependency -->
+                <!-- custom rules can then be referenced in ruleset file -->
+                <dependencies>
+                    <dependency>
+                        <groupId>net.sourceforge.pmd.examples</groupId>
+                        <artifactId>pmd-custom-rules</artifactId>
+                        <version>1.0</version>
+                        <scope>system</scope>
+                        <systemPath>${maven.multiModuleProjectDirectory}/pmd/target/pmd-custom-rules-1.0.jar</systemPath>
+                    </dependency>
+                </dependencies>
+
+
+            </plugin>
+
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+
+            </properties>
+        </profile>
+        <profile>
+            <id>ci</id>
+            <properties>
+
+            </properties>
+        </profile>
+    </profiles>
 
 </project>

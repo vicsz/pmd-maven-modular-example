@@ -1,17 +1,11 @@
 package com.example;
 
+import java.io.*;
 
 public class Module2Application
 {
 
-    int test = 0;
-
-    //Unused field
-    private int abc;
-
-    private String ip = "127.0.0.1";
-
-    private String ip2 = "127.0.0.2";
+    public static String testString = "hello world!";
 
     public void test2() {
 
@@ -22,7 +16,16 @@ public class Module2Application
             s = s + field[i];
         }
 
-        System.out.println(ip);
+    }
 
+    public void withFile() throws FileNotFoundException {
+        InputStream file = new FileInputStream(new File("/tmp/foo"));
+        try {
+            int c = file.available();
+        } catch (IOException e) {
+            // handle exception
+        } finally {
+            // TODO: close file
+        }
     }
 }
