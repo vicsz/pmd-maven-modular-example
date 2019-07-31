@@ -60,6 +60,9 @@
                     <!-- this is per submodule , and NOT aggregate !! -->
                     <maxAllowedViolations>0</maxAllowedViolations>
 
+                    <!-- What priority level to fail the builds, lower priorities will be ignored -->
+                    <failurePriority>3</failurePriority>
+
                 </configuration>
 
                 <!-- Run pmd:check automatically as part of Java Verify Phase -->
@@ -82,7 +85,6 @@
                         <systemPath>${maven.multiModuleProjectDirectory}/pmd/target/pmd-custom-rules-1.0.jar</systemPath>
                     </dependency>
                 </dependencies>
-
 
             </plugin>
 

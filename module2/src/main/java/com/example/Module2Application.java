@@ -1,31 +1,22 @@
 package com.example;
 
-import java.io.*;
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.SQLException;
 
 public class Module2Application
 {
 
     public static String testString = "hello world!";
 
-    public void test2() {
+    public void withSQL(DataSource dataSource) throws SQLException {
 
-        String[] field = {"a", "b", "c", "s", "e"};
-
-        String s = "";
-        for (int i = 0; i < field.length; ++i) {
-            s = s + field[i];
-        }
-
-    }
-
-    public void withFile() throws FileNotFoundException {
-        InputStream file = new FileInputStream(new File("/tmp/foo"));
+        Connection connection = dataSource.getConnection();
         try {
-            int c = file.available();
-        } catch (IOException e) {
-            // handle exception
+            // do stuff
         } finally {
-            // TODO: close file
+             // Opps !! forgot to close connection
         }
     }
+
 }
