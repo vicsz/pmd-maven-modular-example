@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<ruleset name="Correct Logger"
+         xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.sourceforge.io/ruleset_2_0_0.xsd">
+
+    <description>
+        Rule set which defines Correct Logger
+    </description>
+
+    <rule name="CorrectLogger"
+          language="java"
+          class="net.sourceforge.pmd.examples.java.rules.CorrectLogger"
+          message="Use correct class for logger instantiation, should be: ''{0}'' but was: ''{1}''.">
+        <description>
+            Logger instantiation should use the class that it is defined in.
+        </description>
+        <priority>3</priority>
+        <example>
+            <![CDATA[
+public class Example {
+    private static final Logger logger1 = LogManager.getLogger(OtherClass.class); //bad
+    private static final Logger logger2 = Logger.getLogger(Object.class.getName()); //bad
+
+    private static final Logger logger3 = LogManager.getLogger(Example.class); //good
+    private static final Logger logger4 = Logger.getLogger(Example.class.getName); //good
+}
+]]>
+        </example>
+    </rule>
+</ruleset>

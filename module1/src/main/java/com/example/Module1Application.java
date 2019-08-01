@@ -12,7 +12,7 @@ import java.lang.invoke.MethodHandles;
 public class Module1Application
 {
 
-    private static final Logger loggerthing = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
+    private static final Logger logger = LoggerFactory.getLogger(Object.class);
 
     public static void main( String[] args )
     {
@@ -21,6 +21,8 @@ public class Module1Application
     }
 
     public void test() throws IOException {
+
+        String foo = "esfsdf";
 
         InputStream file = new FileInputStream(new File("/tmp/foo"));
         try {

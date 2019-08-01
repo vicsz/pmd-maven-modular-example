@@ -7,7 +7,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class Module2ApplicationTest
 {
-    private String ip = "127.0.0.1";
 
     @Test
     public void test1()

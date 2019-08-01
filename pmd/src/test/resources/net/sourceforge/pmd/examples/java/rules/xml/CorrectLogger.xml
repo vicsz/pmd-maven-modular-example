@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-data
+        xmlns="http://pmd.sourceforge.net/rule-tests"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://pmd.sourceforge.net/rule-tests http://pmd.sourceforge.net/rule-tests_1_0_0.xsd">
+
+    <test-code>
+        <description>Positive case - wrong class used</description>
+        <expected-problems>1</expected-problems>
+        <expected-messages>
+            <message>Use correct class for logger instantiation, should be: 'Module1Application' but was: 'Module2Application'.</message>
+        </expected-messages>
+        <code><![CDATA[
+public class Module1Application
+{
+
+    private static final Logger logger = LoggerFactory.getLogger(Module2Application.class);
+}
+     ]]></code>
+    </test-code>
+
+    <test-code>
+        <description>Positive case - wrong class used</description>
+        <expected-problems>1</expected-problems>
+        <expected-messages>
+            <message>Use correct class for logger instantiation, should be: 'Example' but was: 'OtherClass'.</message>
+        </expected-messages>
+        <code><![CDATA[
+public class Example {
+    private static final Logger logger2 = Logger.getLogger(OtherClass.class.getName());
+}
+     ]]></code>
+    </test-code>
+
+
+    <test-code>
+        <description>Positive case - wrong class used</description>
+        <expected-problems>1</expected-problems>
+        <expected-messages>
+            <message>Use correct class for logger instantiation, should be: 'Example' but was: 'Object'.</message>
+        </expected-messages>
+        <code><![CDATA[
+public class Example
+{
+
+    private Logger logger = Logger.getLogger(Object.class.getName()); //Wrong Logger
+
+    public void test(){
+        Connection connection = dataSource.getConnection();
+    }
+}
+
+     ]]></code>
+    </test-code>
+
+
+    <test-code>
+        <description>Negative case - correct class used</description>
+        <expected-problems>0</expected-problems>
+        <code><![CDATA[
+public class Example {
+    private static final Logger logger = LogManager.getLogger(Example.class);
+}
+     ]]></code>
+    </test-code>
+
+    <test-code>
+        <description>Negative case - correct class used</description>
+        <expected-problems>0</expected-problems>
+        <code><![CDATA[
+public class Example {
+    private static final Logger logger = Logger.getLogger(Example.class.getName);
+}
+     ]]></code>
+    </test-code>
+
+</test-data>

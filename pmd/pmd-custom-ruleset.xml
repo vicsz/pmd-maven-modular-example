@@ -8,17 +8,19 @@
     <rule ref="category/java/bestpractices.xml/JUnitTestsShouldIncludeAssert"/>
 
     <!-- Ensure no STDIO is used , loggers should be used instead -->
-    <rule ref="category/java/bestpractices.xml/SystemPrintln" />
+    <rule ref="category/java/bestpractices.xml/SystemPrintln"/>
 
     <!-- Ensure Resources are disposed off -->
-    <rule ref="category/java/errorprone.xml/CloseResource" />
+    <rule ref="category/java/errorprone.xml/CloseResource"/>
 
     <!-- Custom Rule usage -->
-    <rule ref="net/sourceforge/pmd/examples/java/rules/MyRule.xml/MyRule" />
+    <rule ref="net/sourceforge/pmd/examples/java/rules/MyRule.xml/MyRule"/>
     <rule ref="net/sourceforge/pmd/examples/java/rules/VariableNaming.xml/VariableNaming">
         <!-- Example of overwriting priority level to not break the build -->
         <priority>5</priority>
     </rule>
 
+    <!-- Custom Rule for verifying correct Logger class used -->
+    <rule ref="net/sourceforge/pmd/examples/java/rules/CorrectLogger.xml/CorrectLogger"/>
 
 </ruleset>

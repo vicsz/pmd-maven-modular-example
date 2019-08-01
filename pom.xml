@@ -58,7 +58,7 @@
 
                     <!-- Maximum allowed violations to not break the build -->
                     <!-- this is per submodule , and NOT aggregate !! -->
-                    <maxAllowedViolations>0</maxAllowedViolations>
+                    <maxAllowedViolations>4</maxAllowedViolations>
 
                     <!-- What priority level to fail the builds, lower priorities will be ignored -->
                     <failurePriority>3</failurePriority>
