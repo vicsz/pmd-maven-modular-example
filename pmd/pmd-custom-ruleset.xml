@@ -13,6 +13,11 @@
     <!-- Ensure Resources are disposed off -->
     <rule ref="category/java/errorprone.xml/CloseResource"/>
 
+    <!-- Unused Code -->
+    <rule ref="category/java/bestpractices.xml/UnusedImports" />
+    <rule ref="category/java/bestpractices.xml/UnusedLocalVariable" />
+    <rule ref="category/java/bestpractices.xml/UnusedPrivateField" />
+
     <!-- Custom Rule usage -->
     <rule ref="net/sourceforge/pmd/examples/java/rules/MyRule.xml/MyRule"/>
     <rule ref="net/sourceforge/pmd/examples/java/rules/VariableNaming.xml/VariableNaming">
