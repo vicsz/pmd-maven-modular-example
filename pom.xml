@@ -83,7 +83,10 @@
                         <artifactId>pmd-custom-rules</artifactId>
                         <version>1.0</version>
                         <scope>system</scope>
+
+                        <!-- this points to your compiled JAR of custom rules -->
                         <systemPath>${maven.multiModuleProjectDirectory}/pmd/target/pmd-custom-rules-1.0.jar</systemPath>
+
                     </dependency>
                 </dependencies>
 
