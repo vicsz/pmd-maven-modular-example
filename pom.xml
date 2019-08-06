@@ -14,8 +14,6 @@
         <module>pmd-custom-rules</module>
         <module>module1</module>
         <module>module2</module>
-
-        <module>../micrometer-demo</module>
     </modules>
 
     <properties>
