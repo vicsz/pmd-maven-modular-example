@@ -29,6 +29,10 @@ Note: command can be run both at the project root level, as well as the submodul
 
 ## Running PMD Report
 
+```sh
+#mvn site
+```
+
 PMD Report create (and the break the build if needed) if code breaks current violation thresholds:
 
 ```sh
