@@ -69,17 +69,3 @@ Steps at:
 
 [https://github.com/jenkinsci/slack-plugin](https://github.com/jenkinsci/slack-plugin)
 
-## Updating Custom Rules 
-
-### 1. Modify or Add Custom Rules in the pmd/src directory
-
-### 2. Rebuild the custom rules 
-
-```sh
-cd pmd
-mvn package
-```
-
-### 3. Update the pmd/pmd-custom-ruleset.xml with the new rules (if needed)
-
-### 4. Commit the updated pmd/target/pmd-custom-rules-1.0.jar file to source control
