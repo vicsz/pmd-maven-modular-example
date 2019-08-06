@@ -11,8 +11,11 @@
     <name>example-parent</name>
 
     <modules>
+        <module>pmd-custom-rules</module>
         <module>module1</module>
         <module>module2</module>
+
+        <module>../micrometer-demo</module>
     </modules>
 
     <properties>
@@ -42,7 +45,7 @@
 
                     <!-- Custom ruleset file -->
                     <rulesets>
-                        <ruleset>${maven.multiModuleProjectDirectory}/pmd/pmd-custom-ruleset.xml</ruleset>
+                        <ruleset>pmd-custom-ruleset.xml</ruleset>
                     </rulesets>
 
                     <!-- Fix to Unable to locate Source XRef WARNING -->
@@ -66,7 +69,7 @@
 
                 </configuration>
 
-                <!-- Run pmd:check automatically as part of Java Verify Phase -->
+                <!-- Run pmd:check automatically as part of maven "verify" target -->
                 <executions>
                     <execution>
                         <goals>
@@ -82,11 +85,6 @@
                         <groupId>net.sourceforge.pmd.examples</groupId>
                         <artifactId>pmd-custom-rules</artifactId>
                         <version>1.0</version>
-                        <scope>system</scope>
-
-                        <!-- this points to your compiled JAR of custom rules -->
-                        <systemPath>${maven.multiModuleProjectDirectory}/pmd/target/pmd-custom-rules-1.0.jar</systemPath>
-
                     </dependency>
                 </dependencies>
 
