@@ -79,9 +79,7 @@
                         </goals>
                     </execution>
                 </executions>
-
-                <!-- OPTIONAL - additional custom rules dependency -->
-                <!-- custom rules can then be referenced in ruleset file -->
+                
                 <dependencies>
                     <dependency>
                         <groupId>net.sourceforge.pmd.examples</groupId>
